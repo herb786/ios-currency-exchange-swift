@@ -12,6 +12,7 @@
 		E5C901E01F6B935B00276B1C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C901DF1F6B935B00276B1C /* Currency.swift */; };
 		E5C901E21F6B94B000276B1C /* ReferenceRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C901E11F6B94B000276B1C /* ReferenceRate.swift */; };
 		E5C901E41F6B969400276B1C /* CurrencyPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C901E31F6B969400276B1C /* CurrencyPickerViewController.swift */; };
+		E5CA68B42199DBEB00D16918 /* ApiService.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5CA68B32199DBEB00D16918 /* ApiService.plist */; };
 		E5F27F8B1F5FA2FF0082DFAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F27F8A1F5FA2FF0082DFAF /* AppDelegate.swift */; };
 		E5F27F8D1F5FA2FF0082DFAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F27F8C1F5FA2FF0082DFAF /* ViewController.swift */; };
 		E5F27F901F5FA2FF0082DFAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5F27F8E1F5FA2FF0082DFAF /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		E5C901DF1F6B935B00276B1C /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E5C901E11F6B94B000276B1C /* ReferenceRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceRate.swift; sourceTree = "<group>"; };
 		E5C901E31F6B969400276B1C /* CurrencyPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyPickerViewController.swift; sourceTree = "<group>"; };
+		E5CA68B32199DBEB00D16918 /* ApiService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiService.plist; sourceTree = "<group>"; };
 		E5F27F871F5FA2FF0082DFAF /* XRateTinSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XRateTinSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F27F8A1F5FA2FF0082DFAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5F27F8C1F5FA2FF0082DFAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				E5C901E11F6B94B000276B1C /* ReferenceRate.swift */,
 				E5C901E31F6B969400276B1C /* CurrencyPickerViewController.swift */,
 				E58FF4A31FE1035900AFF7B1 /* TinButton.swift */,
+				E5CA68B32199DBEB00D16918 /* ApiService.plist */,
 			);
 			path = XRateTinSwift;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = hacaller;
 				TargetAttributes = {
 					E5F27F861F5FA2FF0082DFAF = {
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F27F951F5FA2FF0082DFAF /* LaunchScreen.storyboard in Resources */,
+				E5CA68B42199DBEB00D16918 /* ApiService.plist in Resources */,
 				E5F27F921F5FA2FF0082DFAF /* Assets.xcassets in Resources */,
 				E5F27F901F5FA2FF0082DFAF /* Main.storyboard in Resources */,
 			);

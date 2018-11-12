@@ -155,7 +155,10 @@ class CurrencyPickerViewController: UIViewController, UIPickerViewDataSource, UI
     
     
     func fetchExchangeRates(baseCurrency: String, aimCurrency: String) {
-        let baseUrl:String = "https://api.fixer.io/latest?symbols="
+        let path = Bundle.main.path(forResource: "ApiService", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!) as? [String: AnyObject]
+        let API_KEY = dict?["API_KEY_FIXERIO"] as! String
+        let baseUrl = "http://data.fixer.io/api/latest?access_key=" + API_KEY + "&symbols="
         let fullUrl:String = baseUrl.appendingFormat("%@,%@", baseCurrency, aimCurrency)
         guard let fixerioUrl = URL(string: fullUrl) else {
             return
@@ -173,24 +176,11 @@ class CurrencyPickerViewController: UIViewController, UIPickerViewDataSource, UI
                     let referenceRate = try JSONSerialization.jsonObject(with: data, options:
                         JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     let rates = referenceRate?["rates"] as! NSDictionary
-                    let currencies = rates.allKeys as? [String]
+                    //let currencies = rates.allKeys as? [String]
                     let values = rates.allValues as? [Double]
-                    if (baseCurrency != aimCurrency){
-                        if (baseCurrency == "EUR"){
-                            self.pickedBaseCurrency = 1.0
-                            self.pickedAimCurrency = values![0]
-                        } else if (aimCurrency == "EUR"){
-                            self.pickedAimCurrency = 1.0
-                            self.pickedBaseCurrency = values![0]
-                        } else {
-                            if (currencies![0] == baseCurrency){
-                                self.pickedBaseCurrency = values![0]
-                                self.pickedAimCurrency = values![1]
-                            } else {
-                                self.pickedBaseCurrency = values![1]
-                                self.pickedAimCurrency = values![0]
-                            }
-                        }
+                    if (baseCurrency != aimCurrency) {
+                        self.pickedBaseCurrency = values![0]
+                        self.pickedAimCurrency = values![1]
                     }
                     
                 } catch {

@@ -135,8 +135,11 @@ class XChangeViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func fetchExchangeRates(baseCurrency:String) {
-        let baseUrl = "https://api.fixer.io/latest"
-        let fullUrl = baseUrl + baseCurrency
+        let path = Bundle.main.path(forResource: "ApiService", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!) as? [String: AnyObject]
+        let API_KEY = dict?["API_KEY_FIXERIO"] as! String
+        let baseUrl = "http://data.fixer.io/api/latest"
+        let fullUrl = baseUrl + baseCurrency + "&access_key=" + API_KEY
         guard let fixerioUrl = URL(string: fullUrl) else {
             return
         }
@@ -152,9 +155,9 @@ class XChangeViewController: UIViewController, UITableViewDataSource, UITableVie
                 do {
                     let referenceRate = try JSONSerialization.jsonObject(with: data, options:
                         JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-                    let rates = referenceRate?["rates"] as! NSDictionary
-                    self.currencies = rates.allKeys as? [String]
-                    self.values = rates.allValues as? [Double]
+                    let rates = referenceRate?["rates"] as? NSDictionary
+                    self.currencies = rates?.allKeys as? [String]
+                    self.values = rates?.allValues as? [Double]
                     //self.fetchImages()
                 } catch {
                     print(error)
@@ -195,7 +198,7 @@ class XChangeViewController: UIViewController, UITableViewDataSource, UITableVie
                             let myflag = myflags![jdx]
                             let flagcode = myflag["code"] as! String
                             if (flagcode == code){
-                                print(myflag["flag"])
+                                print(myflag["flag"] as Any)
                                 self.flags![idx] = myflag["flag"] as! String
                             }
                         }
